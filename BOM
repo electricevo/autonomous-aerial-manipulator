@@ -1,0 +1,94 @@
+# Bill of Materials
+
+**Project:** F450 autonomous aerial manipulation platform
+**Config:** Quad X | 3S | ArduCopter
+**Last updated:** 2026-08-11
+
+Status key: `HAVE` owned | `ORDER` need to buy | `MAYBE` optional / undecided
+
+---
+
+## Propulsion
+
+| Item | Spec | Qty | Unit | Total | Source | Status | Notes |
+|---|---|---|---|---|---|---|---|
+| Motors | Readytosky RS2212 920KV | 4 | | | | HAVE | 3.17 mm shaft |
+| Propellers | 1045, 2x CW + 2x CCW | 4 | | | | HAVE | Match pusher props to CCW motors 1 and 2 |
+| Prop adapters | 3.17 mm shaft to M5 | 4 | ~$3 | ~$12 | Amazon / GetFPV | ORDER | Prop bore does not fit bare shaft. Self-locking style preferred |
+| Spare props | 1045 set | 4 | | | | ORDER | Buy before first flight, not after |
+
+## Electronics
+
+| Item | Spec | Qty | Unit | Total | Source | Status | Notes |
+|---|---|---|---|---|---|---|---|
+| FC + ESC stack | AERO SELFIE H743 + 60A 4-in-1, 30x30 | 1 | $89.90 | $89.90 | Amazon | HAVE | Dual IMU, compass, baro. Bluejay 48k on ESC |
+| GPS + compass | u-blox M8N or M10 class | 1 | | | | ORDER | External compass is mandatory, mast mounted |
+| RC receiver | ELRS or SBUS | 1 | | | | ORDER | Match to your transmitter |
+| RC transmitter | | 1 | | | | ORDER | |
+| Telemetry radio | 915 MHz pair | 1 | | | | MAYBE | Useful for tuning, not required to fly |
+
+## Frame and mounting
+
+| Item | Spec | Qty | Unit | Total | Source | Status | Notes |
+|---|---|---|---|---|---|---|---|
+| Frame | F450, 450 mm | 1 | | | | HAVE | Red arms forward, white aft |
+| 30x30 adapter plate | 30.5 mm to F450 top plate | 1 | ~$10 | ~$10 | Amazon / print it | ORDER | Or model in Fusion 360 and 3D print |
+| Soft mount grommets | M3 anti-vibration | 4 | | | | ORDER | Never hard-mount the stack |
+| Motor wire extensions | 16-18 AWG silicone | 12 | | | | ORDER | FPV stack assumes ~100 mm, F450 arms are ~220 mm |
+| Landing gear | Tall enough for payload clearance | 1 set | | | | MAYBE | Needed once a gripper hangs below |
+
+## Power
+
+| Item | Spec | Qty | Unit | Total | Source | Status | Notes |
+|---|---|---|---|---|---|---|---|
+| Battery | 3S LiPo, 3000-5000 mAh, 30C+ | 2 | | | | ORDER | Two packs minimum so testing is not one flight per session |
+| Charger | Balance + storage mode | 1 | | | | ORDER | Storage mode matters for LiPo lifespan |
+| LiPo safe bag | | 1 | | | | ORDER | |
+| XT60 connectors | | few | | | | ORDER | |
+
+## Bench and safety
+
+| Item | Spec | Qty | Unit | Total | Source | Status | Notes |
+|---|---|---|---|---|---|---|---|
+| Smoke stopper | XT60 inline | 1 | ~$15 | ~$15 | Amazon | ORDER | Highest value item on this list. Prevents frying the $90 stack on first power-up |
+| Soldering iron | Temp controlled | 1 | | | | HAVE | |
+| Digital calipers | | 1 | | | | HAVE | |
+| Multimeter | | 1 | | | | HAVE | |
+| Zip ties, heat shrink | Assorted | | | | | ORDER | |
+
+## Phase 2 (manipulation payload)
+
+Not needed for first flight. Listed so the airframe budget accounts for it.
+
+| Item | Spec | Qty | Unit | Total | Source | Status | Notes |
+|---|---|---|---|---|---|---|---|
+| Companion computer | Raspberry Pi 5 or Jetson Orin Nano | 1 | | | | MAYBE | Product diagram shows a Pi wired to the FC UART |
+| Camera | USB or CSI | 1 | | | | MAYBE | |
+| Gripper / servo | | 1 | | | | MAYBE | Payload budget on F450 is roughly 1 to 1.5 kg total |
+
+---
+
+## Running total
+
+| Category | Spent | Remaining est. |
+|---|---|---|
+| Propulsion | | |
+| Electronics | $89.90 | |
+| Frame | | |
+| Power | | |
+| Bench | | |
+| **Total** | | |
+
+---
+
+## Open decisions
+
+- Receiver protocol: ELRS vs SBUS, depends on which transmitter
+- Battery capacity: larger pack means longer flight but eats payload margin
+- Whether to 3D print the 30x30 adapter or buy one
+
+## Known constraints
+
+- F450 at 450 mm wheelbase caps prop size around 10-11 inches. 1045 is at the limit
+- Total payload capacity on this airframe is roughly 1 to 1.5 kg. A 5 lb payload needs a 650 mm+ hex, which is a separate build
+- 60A ESC is heavy overkill for RS2212s at 12-15A each. Fine, and it carries over to a larger future build
