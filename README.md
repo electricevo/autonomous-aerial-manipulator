@@ -9,7 +9,7 @@ without human control input.
 
 ## Documents
 - [Project Charter](docs/charter.md)
-- [Bill of Materials](docs/bom.md)
+- [Bill of Materials](docs/BOM.md)
 - [Build Log](docs/build-log.md)
 
 ## Hardware
